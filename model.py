@@ -1,9 +1,6 @@
-import enum
 import sys
 from numpy.core.numeric import outer
-import pandas as pd
 import yfinance as yf
-from yahoofinancials import YahooFinancials
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import numpy as np
