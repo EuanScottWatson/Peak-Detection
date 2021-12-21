@@ -56,7 +56,8 @@ def detection(h, k, x):
 
     return output
 
-if __name__ == "__main__":
+
+def main():
     ticker, start, end = 'TSLA', '2020-01-01', '2021-01-01'
 
     if len(sys.argv) > 1:
@@ -67,8 +68,11 @@ if __name__ == "__main__":
         end = sys.argv[3]
 
     df = yf.download(ticker,
-                    start=start,
-                    end=end)
+                start=start,
+                end=end)
+
+    if df.empty:
+        return
 
     data = df['Close'].to_list()
     output = detection(1, 3, data)
@@ -83,3 +87,7 @@ if __name__ == "__main__":
 
     plt.plot(data)
     plt.show()
+
+
+if __name__ == "__main__":
+    main()
